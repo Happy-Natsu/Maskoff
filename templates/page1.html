@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}page1{% endblock %}
+{% block content %}
+<div class="page1">
+	<h1>Fase Mask Applier</h1>
+	<div>
+		<h2>Select an image</h2>
+	    {% if filename %}
+	        <div>
+	            <image src="{{ url_for('static', filename='images/'+filename) }}" class="upload-img" width=500 height=360>
+	        </div>
+	    {% endif %}
+	    <p>
+	        {% with messages = get_flashed_messages() %}
+	          {% if messages %}
+	            <ul>
+	            {% for message in messages %}
+	              <li>{{ message }}</li>
+	            {% endfor %}
+	            </ul>
+	          {% endif %}
+	        {% endwith %}
+	    </p>
+		<form method="post" action="/chpage11" enctype="multipart/form-data" class="page1-browse">
+			<input type="file" name="file" class="form-control" autocomplete="off" required>
+			<input type="submit" value="Upload" class="btn btn-info">
+		</form>
+		<button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for( 'page11', fname=filename) }}';">Apply Mask</button>
+	</div>
+</div>
+{% endblock %}

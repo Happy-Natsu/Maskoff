@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}page1{% endblock %}
+{% block content %}
+<div class="page23">
+	<h3>Image with mask applied</h3>
+	<div class="inside-page11">
+		<div>
+            <image src="{{ url_for('static', filename='images/'+file) }}" class="upload-img" width=500 height=360>
+        </div>
+	</div>
+	<form method="post" action="/download/{{file}}" enctype="multipart/form-data" >
+		<input type="submit" value="Download image" class="btn btn-info">
+	</form>
+	<button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for( 'home') }}';">Go to home</button> 
+</div>
+{% endblock %}

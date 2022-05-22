@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}page1{% endblock %}
+{% block content %}
+<div class="page3">
+	<h1>Similarity Checker</h1>
+	<div>
+		<h2>Select first image</h2>
+	    {% if filename %}
+	        <div>
+	            <image src="{{ url_for('static', filename='images/'+filename) }}" class="upload-img" width=500 height=360>
+	        </div>
+	    {% endif %}
+	    <p>
+	        {% with messages = get_flashed_messages() %}
+	          {% if messages %}
+	            <ul>
+	            {% for message in messages %}
+	              <li>{{ message }}</li>
+	            {% endfor %}
+	            </ul>
+	          {% endif %}
+	        {% endwith %}
+	    </p>
+		<form method="post" action="/chpage3" enctype="multipart/form-data" class="page1-browse">
+			<input type="file" name="file" class="form-control" autocomplete="off" required>
+			<input type="submit" value="Upload" class="btn btn-info">
+		</form>
+		<button type="button" class="btn btn-primary" onclick="window.location.href='{{ url_for( 'chpage22', fname=filename) }}';">Next</button> 
+	</div>
+</div>
+{% endblock %}

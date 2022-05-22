@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}home page{% endblock %}
+{% block content %}
+<div class="home">
+	<h1>Home page</h1>
+	<div class="img1-container">
+		<a href="/page1">
+			<image src="{{ url_for('static', filename='images/img3.webp') }}" width=350 height=210 class="image">
+			<div class="overlay">
+				<div class="text">Fase Mask Applier</div>
+			</div>
+		</a>
+	</div>
+	<div class="img2-container">
+		<a href="/page2">
+			<image src="{{ url_for('static', filename='images/img4.webp') }}" width=350 height=210>
+			<div class="overlay">
+				<div class="text">Face Mask Remover</div>
+			</div>
+		</a>
+	</div>
+	<div class="img3-container">
+		<a href="/page3">
+			<image src="{{ url_for('static', filename='images/img6.jpg') }}" width=350 height=210>
+			<div class="overlay">
+				<div class="text">Similarity Checker</div>
+			</div>
+		</a>
+	</div>
+	<div class="img4-container">
+		<a href="/page4">
+			<image src="{{ url_for('static', filename='images/img5.webp') }}" width=350 height=210>
+			<div class="overlay">
+				<div class="text">Suspect Checker</div>
+			</div>
+		</a>
+	</div>
+</div>
+{% endblock %}
